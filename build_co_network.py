@@ -20,14 +20,14 @@
 7. 从同现词组中获得词组共现次数并填入共现矩阵
 """
 
-
+import time
 import jieba
 import numpy as np
 import operator
 from collections import defaultdict
 
 
-file_path = ''
+file_path = '2018.txt'
 
 
 def word_segment(file_path):
@@ -115,6 +115,7 @@ def count_matrix(matrix, test):
 
 
 if __name__ == '__main__':
+    start = time.time()
     segment_word_list = word_segment(file_path)
     co_net = build_co_network(segment_word_list)
     terms_max = get_co_terms(co_net)
@@ -123,3 +124,6 @@ if __name__ == '__main__':
     matrix = build_matrix(key_word_set)
     init_matrix = init_matrix(key_word_set, matrix)
     co_occurrence_matrix = count_matrix(init_matrix, terms_max)
+    end = time.time()
+    cost = end - start
+    print("time cost: ", cost)
