@@ -27,7 +27,7 @@ import operator
 from collections import defaultdict
 
 
-file_path = '2018.txt'
+file_path = '201.txt'
 
 
 def word_segment(file_path):
@@ -120,10 +120,11 @@ if __name__ == '__main__':
     co_net = build_co_network(segment_word_list)
     terms_max = get_co_terms(co_net)
     word_list = get_all_words(terms_max)
-    key_word_set = get_set_key(word_list)
-    matrix = build_matrix(key_word_set)
-    init_matrix = init_matrix(key_word_set, matrix)
-    co_occurrence_matrix = count_matrix(init_matrix, terms_max)
+    print(word_list)
+    # key_word_set = get_set_key(word_list)
+    # matrix = build_matrix(key_word_set)
+    # init_matrix = init_matrix(key_word_set, matrix)
+    # co_occurrence_matrix = count_matrix(init_matrix, terms_max)
     end = time.time()
     cost = end - start
     print("time cost: ", cost)
