@@ -27,7 +27,7 @@ import operator
 from collections import defaultdict
 
 
-file_path = '201.txt'
+file_path = './data/2018年国务院政府工作报告.txt'
 
 
 def word_segment(file_path):
