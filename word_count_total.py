@@ -2,6 +2,7 @@ import io
 import os
 import jieba
 import csv_util as util
+import jieba.analyse
 
 jieba.load_userdict("userdict.txt")
 jieba.add_word('财政支出')
@@ -25,7 +26,9 @@ for file in files:
         txt = io.open(file_path, "r", encoding='gbk').read()
         full_text = full_text + txt
 
-words = jieba.lcut(full_text)
+    words = jieba.lcut(full_text)
+# words = jieba.analyse.textrank(full_text, topK=500, withWeight=False,
+#                                allowPOS=('ns', 'nr', 'nt', 'nw', 'n', 'vn'))  # 词性'ns', 'n', 'vn
 counts = {}
 for word in words:
     if len(word) == 1:

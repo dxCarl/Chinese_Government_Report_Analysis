@@ -1,6 +1,7 @@
 import io
 import os
 import jieba
+import jieba.analyse
 import csv_util as util
 
 jieba.load_userdict("userdict.txt")
@@ -28,6 +29,8 @@ for file in files:
 
         txt = io.open(file_path, "r", encoding='gbk').read()
         words = jieba.lcut(txt)
+        # words = jieba.analyse.textrank(txt, topK=500, withWeight=False,
+        #                                allowPOS=('ns', 'nr', 'nt', 'nw', 'n', 'vn'))  # 词性'ns', 'n', 'vn', 'v'
         counts = {}
         for word in words:
             if len(word) == 1:

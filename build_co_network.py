@@ -33,7 +33,7 @@ file_path = './data/2018年国务院政府工作报告.txt'
 def word_segment(file_path):
     """分词"""
     word_list = []
-    f = open(file_path, encoding='utf-8')
+    f = open(file_path, encoding='gbk')
     for line in f.readlines():
         seg_list = jieba.lcut(line, cut_all=False)
         filter_seg_list = [fil for fil in seg_list if len(fil) >= 2]
